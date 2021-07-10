@@ -9,12 +9,10 @@ buildscript {
     }
 
     repositories {
-        google()
-        gradlePluginPortal()
-
-        //默认使用 gradlePluginPortal，以便在依赖库有紧急更新时能第一时间获取
-        //如对日常的拉取速度有追求，可考虑使用以下远程仓库（是对 central 的国内同步仓库，存在 1 天左右的时差）
-        //maven { url "https://maven.aliyun.com/repository/public" }
+        maven { url 'https://maven.aliyun.com/repository/public/' }
+        maven { url 'https://dl.google.com/dl/android/maven2/' }
+        mavenLocal()
+        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.2.2'
@@ -23,7 +21,9 @@ buildscript {
 
 allprojects {
     repositories {
-        google()
+        maven { url 'https://maven.aliyun.com/repository/public/' }
+        maven { url 'https://dl.google.com/dl/android/maven2/' }
+        mavenLocal()
         mavenCentral()
     }
 }
